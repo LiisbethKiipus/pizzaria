@@ -1,0 +1,17 @@
+services:
+  mariadb:
+    image: mariadb:12
+    container_name: mariadb
+    restart: unless-stopped
+    environment:
+      MYSQL_ROOT_PASSWORD: root_s3cr3t
+      MYSQL_DATABASE: pizzaria
+      MYSQL_USER: pizzaria
+      MYSQL_PASSWORD: s3cr3t
+    ports:
+      - "3306:3306"
+    volumes:
+      - db_data:/var/lib/mysql
+
+volumes:
+  db_data:
