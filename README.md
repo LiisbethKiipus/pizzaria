@@ -38,8 +38,8 @@ Project for pizzaria website.
 
 ### Nice to haves
 
-* Code analyzers and linters
-* GitHub Actions running tests and analyzers
-* Dockerize the entire project
-* Able to upload menu item pictures
-* Unit tests
+* Code analyzers and linters [X]
+* GitHub Actions running tests and analyzers [X]
+* Dockerize the entire project [ ]
+* Able to upload menu item pictures [ ]
+* Unit tests [ ]
