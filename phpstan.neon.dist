@@ -1,0 +1,32 @@
+includes:
+    - vendor/phpstan/phpstan/conf/bleedingEdge.neon
+
+parameters:
+    # Analysis level: 0 (loose) → 10 (strict)
+    level: 9
+
+    # Directories to analyse
+    paths:
+        - app
+        - database
+        - routes
+        - tests
+
+    # Temporary storage for analysis cache
+    tmpDir: storage/phpstan
+
+    # Analysis behaviour
+    reportUnmatchedIgnoredErrors: true
+    treatPhpDocTypesAsCertain: false
+
+    # Ignore common Laravel dynamic/facade magic issues
+    ignoreErrors:
+
+    # Additional directories for reflection
+    scanDirectories:
+        - bootstrap
+
+    # Directories excluded from analysis
+    excludePaths:
+        - storage
+        - vendor
