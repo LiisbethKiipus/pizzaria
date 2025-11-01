@@ -9,6 +9,31 @@ Project for pizzaria website.
 * [Make](https://tilburgsciencehub.com/topics/automation/automation-tools/makefiles/make/)
 * [Docker](https://docs.docker.com/)
 
+## How to run
+
+### Setup env
+Copy .env.example -> .env
+
+### Install dependencies
+´´´bash
+make install
+´´´
+
+### Run database
+```bash
+make db-start
+```
+
+### Run migrations
+```bash
+db-migrate
+```
+
+### Start service
+```bash
+make serve
+```
+
 ## Techstack
 
 * React (TS)

@@ -1,4 +1,4 @@
-.PHONY: db-start db-clean
+.PHONY: db-start db-clean db-migrate serve install
 
 db-start:
 	docker-compose up
@@ -8,6 +8,9 @@ db-clean:
 
 db-migrate:
 	php artisan migrate
+
+serve:
+	php artisan serve
 
 install:
 	composer install
