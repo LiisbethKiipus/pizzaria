@@ -15,9 +15,9 @@ Project for pizzaria website. In development.
 Copy .env.example -> .env
 
 ### Install dependencies
-´´´bash
+```bash
 make install
-´´´
+```
 
 ### Run database
 ```bash
