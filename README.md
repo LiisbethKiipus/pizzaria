@@ -1,6 +1,6 @@
 # Pizzaria
 
-Project for pizzaria website.
+Project for pizzaria website. In development.
 
 ## Requirements
 
@@ -44,19 +44,19 @@ make serve
 
 ## Roadmap
 
-### Step 1
+### Step 1 [ ]
 
 * Able to configure employee permissions
 * Able to configure menu 
 * Client side website
 
-### Step 2
+### Step 2 [ ]
 
 * Client is able to select items they want to order
 * Client is able to send out an order
 * Employees are able to see the order
 
-### Step 3
+### Step 3 [ ]
 
 * Clients are able to see the status of their order in real time
 * Employees are able to update the state of order in real time
