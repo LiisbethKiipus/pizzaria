@@ -26,12 +26,17 @@ make db-start
 
 ### Run migrations
 ```bash
-db-migrate
+make db-migrate
 ```
 
-### Start service
+### Start backend service
 ```bash
-make serve
+make be-serve
+```
+
+### Start frontend service
+```bash
+make fe-serve
 ```
 
 ## Techstack
