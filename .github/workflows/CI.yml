@@ -68,7 +68,7 @@ jobs:
 
             # --- Frontend build ---
             - name: Build frontend
-              run: npm run dev
+              run: npm run build
 
             # --- Linting ---
             - name: Run JS/React Linter
