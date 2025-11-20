@@ -1,5 +1,16 @@
 import { InertiaLinkProps } from '@inertiajs/react';
 import { LucideIcon } from 'lucide-react';
+import { route as routeFn } from 'ziggy-js';
+
+declare global {
+    var route: typeof routeFn;
+}
+
+declare module 'ziggy-js' {
+  interface TypeConfig {
+    strictRouteNames: true
+  }
+}
 
 export interface Auth {
     user: User;
@@ -40,4 +51,12 @@ export interface User {
     created_at: string;
     updated_at: string;
     [key: string]: unknown; // This allows for additional properties...
+}
+
+export interface FormUser {
+    id?: number|undefined;
+    name: string;
+    email: string;
+    password?: string|undefined;
+    roles: string[];
 }

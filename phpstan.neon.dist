@@ -1,5 +1,6 @@
 includes:
     - vendor/phpstan/phpstan/conf/bleedingEdge.neon
+    - ./vendor/nunomaduro/larastan/extension.neon
 
 parameters:
     # Analysis level: 0 (loose) → 10 (strict)
@@ -30,3 +31,6 @@ parameters:
     excludePaths:
         - storage
         - vendor
+        - node_modules
+        - resources
+        - database/migrations

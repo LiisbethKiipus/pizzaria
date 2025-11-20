@@ -144,14 +144,17 @@ return [
     */
 
     'features' => [
-        Features::registration(),
-        Features::resetPasswords(),
+        // Users should only be manually created.
+        //Features::registration(),
+        // Features::resetPasswords(),
+        /* TODO: Implement support
         Features::emailVerification(),
         Features::twoFactorAuthentication([
             'confirm' => true,
             'confirmPassword' => true,
             // 'window' => 0
         ]),
+        */
     ],
 
 ];

@@ -73,3 +73,25 @@ make fe-serve
 * Dockerize the entire project [ ]
 * Able to upload menu item pictures [ ]
 * Unit tests [ ]
+
+## Useful commands
+
+### Generate types when making endpoint changes
+```bash
+make gen-t
+```
+
+### Run tests
+```bash
+    make test
+```
+
+### Run linters
+```bash
+    make lint
+```
+
+### Fix linters
+```bash
+    make lint-fix
+```

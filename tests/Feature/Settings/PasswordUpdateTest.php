@@ -3,6 +3,7 @@
 namespace Tests\Feature\Settings;
 
 use App\Models\User;
+use Illuminate\Contracts\Auth\Authenticatable;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Support\Facades\Hash;
 use Tests\TestCase;
@@ -11,8 +12,11 @@ class PasswordUpdateTest extends TestCase
 {
     use RefreshDatabase;
 
-    public function test_password_update_page_is_displayed()
+    public function testPasswordUpdatePageIsDisplayed(): void
     {
+        /**
+         * @var Authenticatable
+         */
         $user = User::factory()->create();
 
         $response = $this
@@ -22,8 +26,11 @@ class PasswordUpdateTest extends TestCase
         $response->assertStatus(200);
     }
 
-    public function test_password_can_be_updated()
+    public function testPasswordCanBeUpdated(): void
     {
+        /**
+         * @var Authenticatable&User
+         */
         $user = User::factory()->create();
 
         $response = $this
@@ -42,8 +49,11 @@ class PasswordUpdateTest extends TestCase
         $this->assertTrue(Hash::check('new-password', $user->refresh()->password));
     }
 
-    public function test_correct_password_must_be_provided_to_update_password()
+    public function testCorrectPasswordMustBeProvideToUpdatePassword(): void
     {
+        /**
+         * @var Authenticatable
+         */
         $user = User::factory()->create();
 
         $response = $this

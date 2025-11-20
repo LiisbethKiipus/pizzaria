@@ -10,13 +10,14 @@
 /storage/*.key
 /storage/pail
 /vendor
+/storage/phpstan
 .DS_Store
 .env
 .env.backup
 .env.production
 .phpactor.json
 .phpunit.result.cache
-Homestead.json
+Homestead.jsonshow
 Homestead.yaml
 npm-debug.log
 yarn-error.log
@@ -26,3 +27,4 @@ yarn-error.log
 /.nova
 /.vscode
 /.zed
+.eslintcache

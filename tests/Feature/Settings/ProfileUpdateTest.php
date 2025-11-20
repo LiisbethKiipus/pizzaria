@@ -3,6 +3,7 @@
 namespace Tests\Feature\Settings;
 
 use App\Models\User;
+use Illuminate\Contracts\Auth\Authenticatable;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Tests\TestCase;
 
@@ -10,8 +11,11 @@ class ProfileUpdateTest extends TestCase
 {
     use RefreshDatabase;
 
-    public function test_profile_page_is_displayed()
+    public function testProfilePageIsDisplayed(): void
     {
+        /**
+         * @var Authenticatable
+         */
         $user = User::factory()->create();
 
         $response = $this
@@ -21,8 +25,11 @@ class ProfileUpdateTest extends TestCase
         $response->assertOk();
     }
 
-    public function test_profile_information_can_be_updated()
+    public function testProfileInformationCanBeUpdated(): void
     {
+        /**
+         * @var Authenticatable&User
+         */
         $user = User::factory()->create();
 
         $response = $this
@@ -43,8 +50,11 @@ class ProfileUpdateTest extends TestCase
         $this->assertNull($user->email_verified_at);
     }
 
-    public function test_email_verification_status_is_unchanged_when_the_email_address_is_unchanged()
+    public function testEmailVerificationStatusIsUnchangedWhenTheEmailAddressIsUnchanged(): void
     {
+        /**
+         * @var Authenticatable&User
+         */
         $user = User::factory()->create();
 
         $response = $this
@@ -61,8 +71,11 @@ class ProfileUpdateTest extends TestCase
         $this->assertNotNull($user->refresh()->email_verified_at);
     }
 
-    public function test_user_can_delete_their_account()
+    public function testUserCanDeleteTheirAccount(): void
     {
+        /**
+         * @var Authenticatable&User
+         */
         $user = User::factory()->create();
 
         $response = $this
@@ -79,8 +92,11 @@ class ProfileUpdateTest extends TestCase
         $this->assertNull($user->fresh());
     }
 
-    public function test_correct_password_must_be_provided_to_delete_account()
+    public function testCorrectPasswordMustBeProvidedToDeleteAccount(): void
     {
+        /**
+         * @var Authenticatable&User
+         */
         $user = User::factory()->create();
 
         $response = $this

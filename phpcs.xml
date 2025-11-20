@@ -15,4 +15,5 @@
     <file>database</file>
     <file>routes</file>
     <file>tests</file>
+    <exclude-pattern>database/migrations/*</exclude-pattern>
 </ruleset> 

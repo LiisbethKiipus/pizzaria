@@ -4,20 +4,25 @@ namespace Tests\Feature;
 
 use App\Models\User;
 use Illuminate\Foundation\Testing\RefreshDatabase;
+use Illuminate\Contracts\Auth\Authenticatable;
 use Tests\TestCase;
 
 class DashboardTest extends TestCase
 {
     use RefreshDatabase;
 
-    public function test_guests_are_redirected_to_the_login_page()
+    public function testGuestsAreRedirectedToTheLoginPage(): void
     {
         $this->get(route('dashboard'))->assertRedirect(route('login'));
     }
 
-    public function test_authenticated_users_can_visit_the_dashboard()
+    public function testAuthenticatedUsersCanVisitTheDashboard(): void
     {
-        $this->actingAs($user = User::factory()->create());
+        /**
+         * @var Authenticatable&User
+         */
+        $user = User::factory()->create();
+        $this->actingAs($user);
 
         $this->get(route('dashboard'))->assertOk();
     }

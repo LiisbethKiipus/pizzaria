@@ -53,8 +53,9 @@ class FortifyServiceProvider extends ServiceProvider
             'status' => $request->session()->get('status'),
         ]));
 
+        /* Users can only be manually made
         Fortify::resetPasswordView(fn (Request $request) => Inertia::render('auth/reset-password', [
-            'email' => $request->email,
+            'email' => $request->json('email'),
             'token' => $request->route('token'),
         ]));
 
@@ -70,7 +71,7 @@ class FortifyServiceProvider extends ServiceProvider
 
         Fortify::twoFactorChallengeView(fn () => Inertia::render('auth/two-factor-challenge'));
 
-        Fortify::confirmPasswordView(fn () => Inertia::render('auth/confirm-password'));
+        Fortify::confirmPasswordView(fn () => Inertia::render('auth/confirm-password')); */
     }
 
     /**
@@ -83,7 +84,9 @@ class FortifyServiceProvider extends ServiceProvider
         });
 
         RateLimiter::for('login', function (Request $request) {
-            $throttleKey = Str::transliterate(Str::lower($request->input(Fortify::username())).'|'.$request->ip());
+            /** @var string */
+            $username = $request->input(Fortify::username());
+            $throttleKey = Str::transliterate(Str::lower($username) . '|' . $request->ip());
 
             return Limit::perMinute(5)->by($throttleKey);
         });
