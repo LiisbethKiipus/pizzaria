@@ -66,6 +66,10 @@ jobs:
             - name: Generate application key
               run: php artisan key:generate
 
+            # --- Frontend build ---
+            - name: Build frontend
+              run: npm run dev
+
             # --- Linting ---
             - name: Run JS/React Linter
               run: npm run lint
@@ -80,19 +84,16 @@ jobs:
             - name: Clear config cache
               run: php artisan config:clear --ansi
 
+            - name: Run TS/JS type checks
+              run: npm run types
+
             - name: Run PHP tests
               run: php artisan test
 
-            - name: Run TS/JS type checks
-              run: npm run types
 
             # --- Migration check ---
             - name: Test database migration
               run: php artisan migrate --force
-
-            # --- Frontend build ---
-            - name: Build frontend
-              run: npm run dev
 
             # --- Serve backend ---
             - name: Start Laravel server
