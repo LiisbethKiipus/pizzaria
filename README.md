@@ -1,13 +1,23 @@
 # Pizzaria
 
-Project for pizzaria website. In development.
+Project for pizzaria website. In development. Able to manage users and menu items.
+
+Example data with the following roles:
+
+- **Admin:** Full access to all features
+- **Manager:** Can create, read, update, and delete menu items; can view users
+- **Employee:** Can view menu items only
+
+Example data users can be found in [DatabaseSeeder.php](\database\seeders\DatabaseSeeder.php).
+
+Login as user at page [http://localhost:8000/login](http://localhost:8000/login)
 
 ## Requirements
 
 * [PHP version 8.4+](https://www.php.net/downloads.php)
 * [Composer](https://getcomposer.org/download/)
 * [Make](https://tilburgsciencehub.com/topics/automation/automation-tools/makefiles/make/)
-* [Docker](https://docs.docker.com/)
+* [Node v24](https://nodejs.org/en/download)
 
 ## How to run
 
@@ -72,7 +82,7 @@ make fe-serve
 * GitHub Actions running tests and analyzers [X]
 * Dockerize the entire project [ ]
 * Able to upload menu item pictures [ ]
-* Unit tests [ ]
+* Unit tests [X]
 
 ## Useful commands
 
@@ -94,4 +104,9 @@ make gen-t
 ### Fix linters
 ```bash
     make lint-fix
+```
+
+### Reload seed data
+```bash
+    make fresh-seed
 ```

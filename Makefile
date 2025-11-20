@@ -13,6 +13,9 @@ be-serve:
 fe-serve:
 	npm run dev
 
+fresh-seed:
+	php artisan migrate:fresh --seed
+
 gen-t:
 	php artisan ziggy:generate --types
 
