@@ -81,6 +81,7 @@ jobs:
               run: php artisan config:clear --ansi
 
             - name: Run PHP tests
+              working-directory: pizzaria
               run: php artisan test
 
             - name: Run TS/JS type checks
