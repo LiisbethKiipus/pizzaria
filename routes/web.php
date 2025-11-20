@@ -19,19 +19,19 @@ Route::middleware(['auth', 'verified'])->group(function () {
 
     // Users Routes
     Route::group(['middleware' => ['permission:users.create']], function () {
-        Route::resource('users', RoleController::class)
+        Route::resource('users', UserController::class)
             ->only(['create', 'store', 'show', 'index']);
     });
     Route::group(['middleware' => ['permission:users.edit']], function () {
-        Route::resource('users', RoleController::class)
+        Route::resource('users', UserController::class)
             ->only(['edit', 'update', 'show', 'index']);
     });
     Route::group(['middleware' => ['permission:users.destroy']], function () {
-        Route::resource('users', RoleController::class)
+        Route::resource('users', UserController::class)
             ->only(['destroy', 'show', 'index']);
     });
     Route::group(['middleware' => ['permission:users.view']], function () {
-        Route::resource('users', RoleController::class)
+        Route::resource('users', UserController::class)
             ->only(['show', 'index']);
     });
 
