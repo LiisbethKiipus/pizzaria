@@ -22,6 +22,7 @@ class UserController extends Controller
             "users" => User::with("roles")->get()
         ]);
     }
+
     /**
      * Show the form for creating a new resource.
      */
@@ -62,7 +63,12 @@ class UserController extends Controller
      */
     public function show(string $id): Response
     {
+        $user = User::find($id);
+        if (!$user) {
+            throw new NotFoundHttpException('User not found');
+        }
         return Inertia::render("Users/Show", [
+            "user" => $user,
             "roles" => Role::pluck("name")
         ]);
     }
@@ -92,6 +98,7 @@ class UserController extends Controller
             "name" => "required",
             "email" => "required"
         ]);
+        /** @var ?User */
         $user = User::Find($id);
         if (!$user) {
             throw new NotFoundHttpException('User not found');

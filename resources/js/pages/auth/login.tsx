@@ -47,6 +47,22 @@ export default function Login({
                                 <InputError message={errors.email} />
                             </div>
 
+                            <div className="grid gap-2">
+                                <div className="flex items-center">
+                                    <Label htmlFor="password">Password</Label>
+                                </div>
+                                <Input
+                                    id="password"
+                                    type="password"
+                                    name="password"
+                                    required
+                                    tabIndex={2}
+                                    autoComplete="current-password"
+                                    placeholder="Password"
+                                />
+                                <InputError message={errors.password} />
+                            </div>
+
                             <div className="flex items-center space-x-3">
                                 <Checkbox
                                     id="remember"

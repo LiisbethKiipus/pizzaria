@@ -10,8 +10,6 @@ use Spatie\Permission\Models\Permission;
 use Spatie\Permission\Models\Role;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
-use function React\Promise\all;
-
 class RoleController extends Controller
 {
     /**

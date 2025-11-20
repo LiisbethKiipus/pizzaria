@@ -5,45 +5,20 @@ declare module 'ziggy-js' {
     "login": [],
     "login.store": [],
     "logout": [],
-    "password.request": [],
-    "password.reset": [
-        {
-            "name": "token",
-            "required": true
-        }
-    ],
-    "password.email": [],
-    "password.update": [],
-    "register": [],
-    "register.store": [],
-    "verification.notice": [],
-    "verification.verify": [
-        {
-            "name": "id",
-            "required": true
-        },
-        {
-            "name": "hash",
-            "required": true
-        }
-    ],
-    "verification.send": [],
     "password.confirm": [],
     "password.confirmation": [],
     "password.confirm.store": [],
-    "two-factor.login": [],
-    "two-factor.login.store": [],
-    "two-factor.enable": [],
-    "two-factor.confirm": [],
-    "two-factor.disable": [],
-    "two-factor.qr-code": [],
-    "two-factor.secret-key": [],
-    "two-factor.recovery-codes": [],
-    "two-factor.regenerate-recovery-codes": [],
     "home": [],
     "dashboard": [],
+    "users.index": [],
     "users.create": [],
     "users.store": [],
+    "users.show": [
+        {
+            "name": "user",
+            "required": true
+        }
+    ],
     "users.edit": [
         {
             "name": "user",
@@ -62,15 +37,15 @@ declare module 'ziggy-js' {
             "required": true
         }
     ],
-    "users.index": [],
-    "users.show": [
+    "roles.index": [],
+    "roles.create": [],
+    "roles.store": [],
+    "roles.show": [
         {
-            "name": "user",
+            "name": "role",
             "required": true
         }
     ],
-    "roles.create": [],
-    "roles.store": [],
     "roles.edit": [
         {
             "name": "role",
@@ -89,10 +64,30 @@ declare module 'ziggy-js' {
             "required": true
         }
     ],
-    "roles.index": [],
-    "roles.show": [
+    "items.index": [],
+    "items.create": [],
+    "items.store": [],
+    "items.show": [
         {
-            "name": "role",
+            "name": "item",
+            "required": true
+        }
+    ],
+    "items.edit": [
+        {
+            "name": "item",
+            "required": true
+        }
+    ],
+    "items.update": [
+        {
+            "name": "item",
+            "required": true
+        }
+    ],
+    "items.destroy": [
+        {
+            "name": "item",
             "required": true
         }
     ],
