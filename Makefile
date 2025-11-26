@@ -1,40 +1,38 @@
-db-start:
-	docker-compose up
+dc = docker compose
 
-db-clean:
-	docker-compose down -v
+start:
+	$(dc) up -d
+
+clean:
+	$(dc) down -v
 
 db-migrate:
-	php artisan migrate
-
-be-serve:
-	php artisan serve
-
-fe-serve:
-	npm run dev
+	$(dc) exec app php artisan migrate
 
 fresh-seed:
-	php artisan migrate:fresh --seed
+	$(dc) exec app php artisan migrate:fresh --seed
 
 gen-t:
-	php artisan ziggy:generate --types
+	$(dc) exec app php artisan ziggy:generate --types
 
 test:
-	php artisan config:clear --ansi
-	php artisan test
-	npm run types
+	$(dc) exec app php artisan config:clear --ansi
+	$(dc) exec app php artisan test
+	$(dc) exec vite npm run types
 
 lint:
-	npm run lint
-	php vendor/bin/phpstan analyse  --memory-limit=512M
-	php vendor/bin/phpcs
+	$(dc) exec vite npm run lint
+	$(dc) exec app php vendor/bin/phpstan analyse --memory-limit=512M
+	$(dc) exec app php vendor/bin/phpcs
 
 lint-fix:
-	npm run lint:fix
-	php vendor/bin/phpcbf
+	$(dc) exec vite npm run lint:fix
+	$(dc) exec app php vendor/bin/phpcbf
 
 install:
-	composer install
-	npm install
-	php artisan key:generate
+	$(dc) exec app composer install
+	$(dc) exec vite npm install
+	$(dc) exec app php artisan key:generate
 
+logs:
+	$(dc) logs -f

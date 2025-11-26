@@ -24,4 +24,12 @@ export default defineConfig({
     esbuild: {
         jsx: 'automatic',
     },
+    server: {
+        host: true,   // listen on 0.0.0.0
+        port: 5173,
+        hmr: {
+        host: 'localhost', // or your Docker host IP
+        protocol: 'ws',
+        },
+    },
 });

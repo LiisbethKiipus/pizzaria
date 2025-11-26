@@ -13,5 +13,37 @@ services:
     volumes:
       - db_data:/var/lib/mysql
 
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile.app
+    container_name: laravel
+    restart: unless-stopped
+    working_dir: /var/www/html
+    volumes:
+      - ./:/var/www/html
+      - vendor:/var/www/html/vendor
+    ports:
+      - "8000:8000"
+    depends_on:
+      - mariadb
+    entrypoint: ["sh", "./entrypoint-app.sh"]
+
+  vite:
+    build:
+      context: .
+      dockerfile: Dockerfile.vite
+    container_name: vite
+    working_dir: /var/www/html
+    volumes:
+      - ./:/var/www/html
+      - vendor:/var/www/html/vendor
+    ports:
+      - "5173:5173"
+    depends_on:
+      - app
+    command: sh -c "composer install && npm install && npm run dev"
+
 volumes:
   db_data:
+  vendor:

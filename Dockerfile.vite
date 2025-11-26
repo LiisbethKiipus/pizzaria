@@ -1,0 +1,17 @@
+FROM node:24
+
+# Install PHP + required extensions
+RUN apt-get update \
+    && apt-get install -y \
+        php-cli \
+        php-mbstring \
+        php-xml \
+        php-curl \
+        php-zip \
+        php-mysql \
+        unzip git curl \
+    && curl -sS https://getcomposer.org/installer \
+        | php -- --install-dir=/usr/local/bin --filename=composer \
+    && rm -rf /var/lib/apt/lists/*
+
+WORKDIR /var/www/html
